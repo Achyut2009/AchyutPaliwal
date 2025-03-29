@@ -3,650 +3,469 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Achyut Paliwal</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Achyut Paliwal | CEO of SkyDark | Full Stack Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
-    <meta name="google-site-verification" content="wCirJoADaKA55lf_yXGAhT7xQEr3QQXk6g6ADvVCq04" />
-    <meta property="og:title" content="Achyut Paliwal">
-    <meta property="og:image" content="favicon.png">
-    <meta property="og:site_name" content="Achyut Paliwal">
+    <meta name="description" content="Achyut Paliwal - 15-year-old tech entrepreneur, full stack developer, and CEO of SkyDark">
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Achyut Paliwal | Tech Entrepreneur & Developer">
+    <meta property="og:image" content="https://achyutpaliwal.netlify.app/social-preview.jpg">
+    <meta property="og:description" content="Young tech entrepreneur, full stack developer, and CEO of SkyDark">
     <meta property="og:url" content="https://achyutpaliwal.netlify.app/">
-    <meta name="description" content="Hi, I'm Achyut Paliwal. CEO of SkyDark | Full Stack | Web Dev">
-
-    <style>
-        /* Basic Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f4f4f4;
-            scroll-behavior: smooth;
-        }
-
-        /* Progress Bar Styles */
-        #progressBar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 5px;
-            background: #d824ec;
-            z-index: 1000;
-        }
-
-        /* Navbar Styles */
-        header {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 10;
-        }
-
-        .hamburger {
-            display: flex;
-            flex-direction: column;
-            cursor: pointer;
-            padding: 10px 20px;
-            z-index: 11;
-            position: fixed;
-            right: 20px;
-            top: 20px;
-        }
-
-        .hamburger div {
-            width: 25px;
-            height: 3px;
-            background-color: white;
-            margin: 4px 0;
-            transition: 0.3s ease-in-out;
-        }
-
-        .nav-links {
-            display: flex;
-            flex-direction: column;
-            position: fixed;
-            top: 0;
-            left: -300px;
-            width: 250px;
-            height: 100vh;
-            background-color: #333;
-            padding: 20px;
-            transition: transform 0.3s ease-in-out;
-            overflow-y: auto;
-        }
-
-        .nav-links.active {
-            transform: translateX(300px);
-        }
-
-        .nav-links li {
-            list-style: none;
-            margin: 20px 0;
-        }
-
-        .nav-links li a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: 500;
-            padding: 10px 0;
-            display: block;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links li a::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: #47ff9d;
-            transition: width 0.3s ease;
-        }
-
-        .nav-links li a:hover::after {
-            width: 100%;
-        }
-
-        .nav-links li a:hover {
-            color: #47ff9d;
-        }
-
-        @media(max-width: 500px){
-            .nav-links{
-                width: 200px;
-                height: 100%;
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            light: '#7c3aed',
+                            DEFAULT: '#6d28d9',
+                            dark: '#5b21b6'
+                        },
+                        secondary: {
+                            light: '#10b981',
+                            DEFAULT: '#059669',
+                            dark: '#047857'
+                        },
+                        dark: '#0f172a',
+                        light: '#f8fafc'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace']
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-in': 'fadeIn 1s ease-in'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        }
+                    }
+                }
             }
         }
-
-        /* Section Styles */
-        .section {
-            height: 100vh ;
-            background-image: url('mountains.jpg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            color: white;
-            text-align: center;
-            padding: 10px;
-        }
-
-        @media(max-width: 680px){
-            .section{
-                height: auto;
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-gradient {
+                background-clip: text;
+                -webkit-background-clip: text;
+                color: transparent;
             }
-            .fa{
-                margin-top: 50px;
+            .glass-effect {
+                background: rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
             }
-        }
-        
-        @media(min-height: 768px) {
-            .section h1{
-                margin-top: 80px;
+            .nav-link {
+                position: relative;
             }
-        }
-
-        @media(min-height: 900px) {
-            .section h1{
-                margin-top: 150px;
+            .nav-link::after {
+                content: '';
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: linear-gradient(90deg, #6d28d9, #10b981);
+                transition: width 0.3s ease;
             }
-        }
-
-        @media(min-height: 1000px) {
-            .section h1{
-                margin-top: 230px;
+            .nav-link:hover::after {
+                width: 100%;
             }
-        }
-
-        @media(min-height: 1100px) {
-            .section h1{
-                margin-top: 290px;
+            .card-hover-effect {
+                transition: all 0.3s ease;
             }
-        }
-        
-        @media(min-height: 1180px) {
-            .section h1{
-                margin-top: 250px;
+            .card-hover-effect:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             }
-        }
-
-        @media(max-height: 660px){
-            .section h1{
-                margin-top: -100px;
-            }
-        }
-        .section h1 {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            color: rgb(127, 255, 53);
-        }
-
-        .section h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: #ffffff;
-        }
-
-        .section p {
-            font-size: 1.5rem;
-            max-width: 700px;
-            margin: 0 auto;
-            color: #b4a8a8;
-        }
-
-        .section button {
-            background-color: rgba(121, 255, 76, 0.736);
-            color: white;
-            border: none;
-            padding: 15px 20px;
-            font-size: 1.3rem;
-            cursor: pointer;
-            margin-top: 30px;
-            transition-duration: 0.3s;
-        }
-
-        .section button:hover {
-            background-color: rgb(127, 255, 53);
-            border-radius: 0px;
-        }
-
-        .social-icons {
-            margin-top : auto; /* Push icons to the bottom */
-        }
-        .section-content {
-            margin-top: 220px;
-        }
-        .fa {
-            padding: 20px;
-            font-size: 50px;
-            width: 50px;
-            text-align: center;
-            text-decoration: none;
-            margin-bottom: 3px;
-            margin-left: 20px;
-            margin-right: 20px;
-            color: #3efc51;
-            transition-duration: 0.5s;
-        }
-
-        .fa:hover {
-            color: #00ff1aa9;
-        }
-
-        /* About Section Styles */
-        .about {
-            height: auto;
-            color: rgb(0, 0, 0);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 50px 20px;
-            text-align: left;
-            background-image: url('.jpg');
-        }
-
-        .about h1 {
-            font-size: 3rem;
-            margin-bottom: 50px;
-            color: #00ff55;
-        }
-
-        .about p {
-            font-size: 1.5rem;
-            max-width: 1000px;
-            margin: 0 auto 20px;
-            margin-bottom: 0px;
-            font-weight: 500;
-            color: #b4a8a8;
-        }
-
-        /* Stylish Image Boxes */
-        .image-container {
-            display: flex;
-            gap: 20px;
-            margin-top: 50px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .image-box1 {
-            width: 200px;
-            height: 150px;
-            background-color: #ddd;
-            border-radius: 15px;
-            background-size: cover;
-            background-position: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .image-box1:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-        }
-
-        /* Education Section Styles */
-        .education {
-            height: auto;
-            background-image: url('your-background-image.jpg'); /* Replace with your image path */
-            background-size: cover;
-            background-position: center;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 50px 20px;
-            text-align: center;
-            margin-top: 200px;
-            background-image: url('.jpg'); /* Optional: Add a slight white background for readability */
-        }
-
-        .education h1 {
-            font-size: 3rem;
-            margin-top: 50px;
-            margin-bottom: 20px;
-            color: #00ff55;
-        }
-
-        .education p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 30px;
-            color: #555;
-        }
-
-        .image-boxes {
-        display: flex;
-        justify-content: center;
-        gap: 50px;
-        margin-top: 80px;
-        flex-wrap: wrap;
-    }
-
-    .image-box {
-        width: 400px;
-        height: 400px;
-        background-color: #dddddd;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        border: 1px solid rgb(201, 209, 214);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative; /* Added for absolute positioning of message */
-        transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
-    }
-
-    .image-box:hover {
-        transform: scale(1.05);
-        background-color: #b4adadb4;
-        color: white;
-        border-radius: 0px;
-    }
-
-    .message {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        opacity: 0.9;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: rgb(164, 168, 168);
-        color: rgb(255, 255, 255);
-        padding: 5px 10px;
-        display: none; /* Hidden by default */
-    }
-
-    .message p{
-        color: white;
-        margin-top: 30%;
-
-    }
-
-    .image-box:hover .message {
-        display: block; /* Show message on hover */
-    }
-
-        .personal {
-        height: auto;
-        color: rgb(0, 0, 0);
-        display: flex;
-        flex-direction: column; /* Changed to column to stack content */
-        align-items: center; /* Center align items */
-        padding: 50px 20px;
-        text-align: center; /* Center text */
-        background-image: url('.jpg');
-        margin-top: 200px;
-    }
-
-    .personal-content {
-        max-width: 1000px; /* Limit width of the text content */
-        margin-bottom: 30px; /* Space between text and images */
-    }
-
-    .personal h1 {
-        font-size: 3rem;
-        margin-bottom: 30px;
-        color: #00ff55;
-    }
-
-    .personal h3 {
-        font-size: 1.7rem;
-        margin-bottom: 30px;
-        color: #646969;
-        font-weight: 775;
-    }
-
-    .personal p {
-        font-size: 1.5rem;
-        color: #b4a8a8;
-        text-align: left;
-    }
-
-    .image-boxes2 {
-        display: flex;
-        justify-content: center; /* Center images horizontally */
-        gap: 20px; /* Space between image boxes */
-    }
-
-    .image-box2 {
-        width: 150px; /* Set a fixed width */
-        height: 150px; /* Set a fixed height */
-        background-color: #ddd;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        margin-top: 30px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        transition: transform 0.3s, box-shadow 0.3s;
-        transition-duration: 0.3s;
-        .message1{
-            opacity: 0;
-        }
-    }
-
-    .image-box2:hover {
-        transform: scale(1.05);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-        border-radius: 0px;
-        transition-duration: 0.3s;
-        .message1{
-            background-color: #555;
-            opacity: 0.7;
-            height: 100%;
-            padding-left: 15%;
-            padding-top: 30%;
-            transition-duration: 0.3s;
-        }
-        .message1 p{
-            color: white;
-            transition-duration: 0.3s;
-        }
-    }
-    
-    .social-icons1{
-        margin-top: 50px;
-    }
-
-        /* Footer Styles */
-        footer {
-            background-image: url('.jpg');
-            color: rgb(0, 0, 0);
-            text-align: center;
-            padding: 20px;
-            position: relative;
-            bottom: 0;
-            width: 100%;
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 </head>
-<body>
-    <!-- Progress Bar -->
-    <div id="progressBar"></div>
-    <!-- Navbar -->
-    <header>
-        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
+<body class="font-sans bg-gradient-to-br from-slate-50 to-slate-100 text-slate-800 min-h-screen">
+    <!-- Animated Background -->
+    <div class="fixed inset-0 -z-10 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5"></div>
+        <div class="absolute top-0 left-0 w-full h-full opacity-10">
+            <div class="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-primary/20 blur-3xl animate-float"></div>
+            <div class="absolute top-3/4 left-3/4 w-64 h-64 rounded-full bg-secondary/20 blur-3xl animate-float animation-delay-2000"></div>
+            <div class="absolute top-2/3 left-1/3 w-64 h-64 rounded-full bg-primary/20 blur-3xl animate-float animation-delay-4000"></div>
         </div>
-        <ul class="nav-links" id="nav-links">
-            <li><a href="#" id="home">HOME</a></li>
-            <li><a href="#" id="about-link">ABOUT</a></li>
-            <li><a href="#" id="education1">EDUCATION</a></li>
-            <li><a href="#" id="personal1">PERSONAL</a></li>
-        </ul>
-    </header>
+    </div>
 
-    <!-- Main Section -->
-    <section class="section" id="section">
-        <div class="section-content">
-            <h1>Hi, I'm Achyut Paliwal</h1>
-            <h2>Get to learn more about me and follow me</h2>
-            <p>| CEO OF SKYDARK | FULL STACK | WEB DEV |</p>
-            <button id="learnMore">LEARN MORE</button>
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 glass-effect border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary text-gradient">Achyut Paliwal</a>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-slate-700 hover:text-primary font-medium">Home</a>
+                <a href="#about" class="nav-link text-slate-700 hover:text-primary font-medium">About</a>
+                <a href="#education" class="nav-link text-slate-700 hover:text-primary font-medium">Education</a>
+                <a href="#contact" class="nav-link text-slate-700 hover:text-primary font-medium">Contact</a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-slate-700 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
         </div>
-        <div class="social-icons">
-            <a href="https://www.linkedin.com/in/achyut-paliwal-57bb51294/" target="_blank" class="fa fa-linkedin"></a>
-            <a href="https://instagram.com/achyutkpaliwal/"  target="_blank"class="fa fa-instagram"></a>
-            <a href="https://github.com/Achyut2009" target="_blank" class="fa fa-github"></a>
-            <a href="https://x.com/APaliwal63574" target="_blank" class="fa fa-twitter"></a>
-            <a href="https://wa.me/55084599" target="_blank" class="fa fa-whatsapp"></a>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-sm py-4 px-6 shadow-lg">
+            <div class="flex flex-col space-y-4">
+                <a href="#home" class="nav-link text-slate-700 hover:text-primary font-medium">Home</a>
+                <a href="#about" class="nav-link text-slate-700 hover:text-primary font-medium">About</a>
+                <a href="#education" class="nav-link text-slate-700 hover:text-primary font-medium">Education</a>
+                <a href="#contact" class="nav-link text-slate-700 hover:text-primary font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 pb-16 px-6">
+        <div class="max-w-4xl mx-auto text-center animate-fade-in">
+            <div class="inline-block px-4 py-2 bg-primary/10 rounded-full mb-6">
+                <span class="text-sm font-medium text-primary">CEO OF SKYDARK</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                <span class="bg-gradient-to-r from-primary to-secondary text-gradient">Achyut Paliwal</span>
+            </h1>
+            <h2 class="text-xl md:text-2xl text-slate-600 mb-8 max-w-2xl mx-auto">
+                Full Stack Developer | Tech Entrepreneur | Aviation & Space Enthusiast
+            </h2>
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <a href="#about" class="px-8 py-3 bg-gradient-to-r from-primary to-secondary text-white font-medium rounded-full hover:shadow-lg transition-all duration-300">
+                    Learn More
+                </a>
+                <a href="#contact" class="px-8 py-3 border-2 border-primary text-primary font-medium rounded-full hover:bg-primary/10 transition-all duration-300">
+                    Contact Me
+                </a>
+            </div>
+            <div class="flex justify-center space-x-6">
+                <a href="https://www.linkedin.com/in/achyut-paliwal-57bb51294/" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-full bg-white shadow-md hover:shadow-lg hover:text-primary transition-all duration-300">
+                    <i class="fab fa-linkedin-in text-xl"></i>
+                </a>
+                <a href="https://instagram.com/achyutkpaliwal/" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-full bg-white shadow-md hover:shadow-lg hover:text-primary transition-all duration-300">
+                    <i class="fab fa-instagram text-xl"></i>
+                </a>
+                <a href="https://github.com/Achyut2009" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-full bg-white shadow-md hover:shadow-lg hover:text-primary transition-all duration-300">
+                    <i class="fab fa-github text-xl"></i>
+                </a>
+                <a href="https://x.com/APaliwal63574" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-full bg-white shadow-md hover:shadow-lg hover:text-primary transition-all duration-300">
+                    <i class="fab fa-twitter text-xl"></i>
+                </a>
+                <a href="https://wa.me/55084599" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-full bg-white shadow-md hover:shadow-lg hover:text-primary transition-all duration-300">
+                    <i class="fab fa-whatsapp text-xl"></i>
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="about" id="about">
-        <h1>ABOUT ME</h1>
-        <p>HI! I AM ACHYUT PALIWAL. A 15 YEAR OLD CS STUDENT INTERESTED IN WEB DEVELOPMENT, UI DESIGNING, AVIATION, UV DRONES, SPACE AND MODEL ROCKETS.
-        A CERTIFIED PYTHON PROGRAMMER, C PROGRAMMER, WEB DEVELOPER, UI DESIGNER. CURRENTLY STUDYING IN GRADE 10, DPS-MODERN INDIAN SCHOOL.
-        I AM ALSO THE FOUNDER AND CEO OF SKYDARK</p>
-        <p> <br> <br> I AM VERY DEEPLY INTERESTED IN TOPICS SUCH AS ENGINEERING, PROGRAMMING, MATHS, SCIENCE, TECHNOLOGY, SPACE, AVIATION AND AEROSPACE ENGINEERING.
-        DOWN ARE A FEW PICTURES THAT DEPICT MY FUTURE.</p>
-        <!-- Stylish Div Boxes for Images -->
-        <div class="image-container">
-            <div class="image-box1" style="background-image: url('coding.jpg');"></div>
-            <div class="image-box1" style="background-image: url('rocket.jpg');"></div>
-            <div class="image-box1" style="background-image: url('airbus.jpg');"></div>
-            <div class="image-box1" style="background-image: url('coding2.jpg');"></div>
-            <div class="image-box1" style="background-image: url('UV.jpg');"></div>
+    <section id="about" class="py-20 px-6 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">About Me</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2">
+                    <div class="relative group">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-primary to-secondary rounded-2xl opacity-50 blur-md group-hover:opacity-70 transition-all duration-300"></div>
+                        <div class="relative overflow-hidden rounded-xl shadow-xl h-96 w-full">
+                            <img src="profile-image.jpg" alt="Achyut Paliwal" class="w-full h-full object-cover object-center">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-bold mb-6">Hi, I'm Achyut Paliwal</h3>
+                    <p class="text-lg text-slate-600 mb-6">
+                        A 15-year-old computer science student passionate about web development, UI/UX design, aviation, drones, space exploration, and model rocketry. 
+                        Certified in Python, C programming, web development, and UI design.
+                    </p>
+                    <p class="text-lg text-slate-600 mb-8">
+                        Currently studying in Grade 10 at DPS-Modern Indian School, I'm also the founder and CEO of SkyDark. My interests span across engineering, 
+                        programming, mathematics, science, technology, space exploration, and aerospace engineering.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                            <h4 class="font-bold text-primary mb-2">Full Stack</h4>
+                            <p class="text-sm text-slate-600">Frontend & Backend Development</p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                            <h4 class="font-bold text-primary mb-2">UI/UX Design</h4>
+                            <p class="text-sm text-slate-600">User Interface & Experience</p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                            <h4 class="font-bold text-primary mb-2">Aviation Tech</h4>
+                            <p class="text-sm text-slate-600">Drones & Aerospace</p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                            <h4 class="font-bold text-primary mb-2">Entrepreneur</h4>
+                            <p class="text-sm text-slate-600">CEO of SkyDark</p>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="inline-block px-8 py-3 bg-gradient-to-r from-primary to-secondary text-white font-medium rounded-full hover:shadow-lg transition-all duration-300">
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Interests Gallery -->
+            <div class="mt-20">
+                <h3 class="text-2xl font-bold mb-8 text-center">My Passion Areas</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                    <div class="group relative overflow-hidden rounded-xl shadow-md card-hover-effect h-48">
+                        <img src="coding.jpg" alt="Coding" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
+                            <h4 class="text-white font-medium">Programming</h4>
+                        </div>
+                    </div>
+                    <div class="group relative overflow-hidden rounded-xl shadow-md card-hover-effect h-48">
+                        <img src="rocket.jpg" alt="Rocket" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
+                            <h4 class="text-white font-medium">Space Exploration</h4>
+                        </div>
+                    </div>
+                    <div class="group relative overflow-hidden rounded-xl shadow-md card-hover-effect h-48">
+                        <img src="airbus.jpg" alt="Aviation" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
+                            <h4 class="text-white font-medium">Aviation</h4>
+                        </div>
+                    </div>
+                    <div class="group relative overflow-hidden rounded-xl shadow-md card-hover-effect h-48">
+                        <img src="coding2.jpg" alt="Web Development" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
+                            <h4 class="text-white font-medium">Web Dev</h4>
+                        </div>
+                    </div>
+                    <div class="group relative overflow-hidden rounded-xl shadow-md card-hover-effect h-48">
+                        <img src="UV.jpg" alt="Drones" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
+                            <h4 class="text-white font-medium">Drone Tech</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- New Education Section -->
-    <section class="education" id="education">
-        <h1>EDUCATION</h1>
-        <!-- Div Boxes for Image Generation -->
-        <div class="image-boxes">
-            <div class="image-box" style="background-image: url('DPS.jpg');">
-                <div class="message"><p>DPS-MIS DOHA QATAR <br>2013-2024(CURRENT DATE) <br><br>
-                CURRENTLY STUDYING IN GRADE 10TH</p>
-                </div>
+    <!-- Education Section -->
+    <section id="education" class="py-20 px-6 bg-slate-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Education & Certifications</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
             </div>
-            <div class="image-box" style="background-image: url('images.jpg');">
-                <div class="message">
-                    <p>
-                        INTRODUCTION TO PYTHON ESSENTIALS-1 <br><br>
-                        INTRODUCTION TO IoT <br><br>
-                        INTRODUCTION TO CISCO CYBER SECURITY
-                    </P>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- DPS Card -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover-effect">
+                    <div class="h-48 overflow-hidden">
+                        <img src="DPS.jpg" alt="DPS-MIS" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">DPS-MIS Doha, Qatar</h3>
+                        <p class="text-slate-600 mb-4">2013 - Present (Grade 10)</p>
+                        <p class="text-slate-700">
+                            Currently pursuing my secondary education with focus on computer science and mathematics.
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div class="image-box" style="background-image: url('image.jpg');">
-                <div class="message">
-                    <P>
-                        INTRODUCTION TO COMPUTER SCIENCE CS50<br><br>
-                        INTRODUCTION TO PYTHON PROGRAMMING CS50<br><br>
-                        C PROGRAMMING CS50
-                    </P>
+                
+                <!-- Cisco Certifications -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover-effect">
+                    <div class="h-48 overflow-hidden">
+                        <img src="images.jpg" alt="Cisco Certifications" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Cisco Certifications</h3>
+                        <ul class="space-y-2 text-slate-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-secondary mr-2 mt-1"></i>
+                                <span>Introduction to Python Essentials</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-secondary mr-2 mt-1"></i>
+                                <span>Introduction to IoT</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-secondary mr-2 mt-1"></i>
+                                <span>Introduction to Cyber Security</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Harvard CS50 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover-effect">
+                    <div class="h-48 overflow-hidden">
+                        <img src="image.jpg" alt="Harvard CS50" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Harvard CS50</h3>
+                        <ul class="space-y-2 text-slate-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-secondary mr-2 mt-1"></i>
+                                <span>Introduction to Computer Science</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-secondary mr-2 mt-1"></i>
+                                <span>Introduction to Python</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-secondary mr-2 mt-1"></i>
+                                <span>C Programming</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-<section class="personal" id="personal">
-    <div class="personal-content">
-        <h1>KNOW ME AS A PERSON</h1>
-        <h3>I WOULD LIKE TO HEAR FROM YOUR END.</h3>
-        <p>IF YOU WISH TO CONNECT TO ME, FEEL FREE TO CONTACT ME THROUGH SOCIAL MEDIA PLATFORMS.
-        PLEASE DO NOT HESITATE TO ASK ME ANYTHING. YOU CAN ALSO CONTACT ME THROUGH MY SCHOOL AS A STUDENT. </p>
-    </div>
-    <div class="image-boxes2">
-        <div class="image-box2" style="background-image: url('A (2).png');"></div>
-        <div class="image-box2" style="background-image: url('Screenshot 2024-Achyut Paliwal.png');">
-            <div class="message1">
-                <p>ACHYUT PALIWAL</p>
+    <!-- Personal Section -->
+    <section id="contact" class="py-20 px-6 bg-gradient-to-br from-primary to-secondary text-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-6">Let's Connect</h2>
+            <p class="text-xl mb-12 opacity-90 max-w-2xl mx-auto">
+                I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-6 mb-16">
+                <a href="mailto:your-email@example.com" class="flex items-center px-6 py-3 bg-white/10 rounded-full hover:bg-white/20 transition-all duration-300 border border-white/20">
+                    <i class="fas fa-envelope mr-3"></i>
+                    Email Me
+                </a>
+                <a href="https://wa.me/55084599" target="_blank" class="flex items-center px-6 py-3 bg-white/10 rounded-full hover:bg-white/20 transition-all duration-300 border border-white/20">
+                    <i class="fab fa-whatsapp mr-3"></i>
+                    WhatsApp
+                </a>
+                <a href="https://www.linkedin.com/in/achyut-paliwal-57bb51294/" target="_blank" class="flex items-center px-6 py-3 bg-white/10 rounded-full hover:bg-white/20 transition-all duration-300 border border-white/20">
+                    <i class="fab fa-linkedin-in mr-3"></i>
+                    LinkedIn
+                </a>
+            </div>
+            
+            <div class="flex justify-center space-x-6">
+                <a href="https://www.linkedin.com/in/achyut-paliwal-57bb51294/" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-all duration-300">
+                    <i class="fab fa-linkedin-in text-xl"></i>
+                </a>
+                <a href="https://instagram.com/achyutkpaliwal/" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-all duration-300">
+                    <i class="fab fa-instagram text-xl"></i>
+                </a>
+                <a href="https://github.com/Achyut2009" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-all duration-300">
+                    <i class="fab fa-github text-xl"></i>
+                </a>
+                <a href="https://x.com/APaliwal63574" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-all duration-300">
+                    <i class="fab fa-twitter text-xl"></i>
+                </a>
             </div>
         </div>
-    </div>
-    <div class="social-icons1">
-        <a href="https://www.linkedin.com/in/achyut-paliwal-57bb51294/" target="_blank" class="fa fa-linkedin"></a>
-        <a href="https://instagram.com/achyutkpaliwal/"  target="_blank"class="fa fa-instagram"></a>
-        <a href="https://github.com/Achyut2009" target="_blank" class="fa fa-github"></a>
-        <a href="https://x.com/APaliwal63574" target="_blank" class="fa fa-twitter"></a>
-        <a href="https://wa.me/55084599" target="_blank" class="fa fa-whatsapp"></a>
-    </div>
-</section>
+    </section>
 
-<!-- Footer -->
-<footer>
-    <p>&copy; 2024 Achyut Paliwal. All rights reserved.</p>
-</footer>
+    <!-- Footer -->
+    <footer class="py-8 px-6 bg-slate-900 text-slate-400">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p>&copy; 2024 Achyut Paliwal. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-white transition-colors duration-300">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors duration-300">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-<script>
-    // Progress Bar Script
-    window.onscroll = function () {
-        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrollPercentage = (scrollTop / scrollHeight) * 100;
-        document.getElementById("progressBar").style.width = scrollPercentage + "%";
-    };
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-primary rounded-full shadow-lg text-white hidden items-center justify-center hover:bg-primary-dark transition-all duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
-    const navLinks = document.getElementById('nav-links');
-    const hamburger = document.getElementById('hamburger');
-
-    function toggleMenu() {
-        navLinks.classList.toggle('active');
-    }
-
-    document.getElementById('learnMore').addEventListener('click', () => {
-        document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
-    });
-
-    document.addEventListener('click', (event) => {
-        const isClickInsideNav = navLinks.contains(event.target);
-        const isClickInsideHamburger = hamburger.contains(event.target);
-
-        if (!isClickInsideNav && !isClickInsideHamburger && navLinks.classList.contains('active')) {
-            navLinks.classList.remove('active');
-        }
-    });
-
-    // Scroll to About Section when "ABOUT" is clicked
-    document.getElementById('about-link').addEventListener('click', function (e) {
-        e.preventDefault(); // Prevent default anchor behavior
-        document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
-    });
-
-    // Scroll to Home Section when "HOME" is clicked
-    document.getElementById('home').addEventListener('click', function (e) {
-        e.preventDefault(); // Prevent default anchor behavior
-        document.getElementById('section').scrollIntoView({ behavior: 'smooth' });
-    });
-
-    // Scroll to Education Section when "EDUCATION" is clicked
-    document.getElementById('education1').addEventListener('click', function (e) {
-        e.preventDefault(); // Prevent default anchor behavior
-        document.getElementById('education').scrollIntoView({ behavior: 'smooth' });
-    });
-
-    // Scroll to Awards Section when "AWARDS" is clicked
-    document.getElementById('personal1').addEventListener('click', function (e) {
-        e.preventDefault(); // Prevent default anchor behavior
-        document.getElementById('personal').scrollIntoView({ behavior: 'smooth' });
-    });
-
-     // Add beforeunload event listener to show alert on tab close
-     window.addEventListener('beforeunload', function (event) {
-        const confirmationMessage = 'Are you sure you want to leave this site? Any unsaved changes will be lost.';
-        event.returnValue = confirmationMessage; // For most browsers
-        return confirmationMessage; // For older browsers
-    });
-</script>
-
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Smooth scrolling for all links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+                backToTopButton.classList.add('flex');
+            } else {
+                backToTopButton.classList.add('hidden');
+                backToTopButton.classList.remove('flex');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Progress bar
+        const progressBar = document.getElementById('progressBar');
+        
+        window.addEventListener('scroll', () => {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercentage = (scrollTop / scrollHeight) * 100;
+            progressBar.style.width = scrollPercentage + '%';
+        });
+        
+        // Beforeunload event
+        window.addEventListener('beforeunload', function(event) {
+            const confirmationMessage = 'Are you sure you want to leave?';
+            event.returnValue = confirmationMessage;
+            return confirmationMessage;
+        });
+    </script>
 </body>
 </html>
