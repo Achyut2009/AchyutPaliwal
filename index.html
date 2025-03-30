@@ -89,6 +89,9 @@
                 transform: translateY(-5px);
                 box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             }
+            .skill-progress {
+                transition: width 1.5s ease-in-out;
+            }
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -114,6 +117,7 @@
             <div class="hidden md:flex space-x-8">
                 <a href="#home" class="nav-link text-slate-700 hover:text-primary font-medium">Home</a>
                 <a href="#about" class="nav-link text-slate-700 hover:text-primary font-medium">About</a>
+                <a href="#skills" class="nav-link text-slate-700 hover:text-primary font-medium">Skills</a>
                 <a href="#education" class="nav-link text-slate-700 hover:text-primary font-medium">Education</a>
                 <a href="#contact" class="nav-link text-slate-700 hover:text-primary font-medium">Contact</a>
             </div>
@@ -131,6 +135,7 @@
             <div class="flex flex-col space-y-4">
                 <a href="#home" class="nav-link text-slate-700 hover:text-primary font-medium">Home</a>
                 <a href="#about" class="nav-link text-slate-700 hover:text-primary font-medium">About</a>
+                <a href="#skills" class="nav-link text-slate-700 hover:text-primary font-medium">Skills</a>
                 <a href="#education" class="nav-link text-slate-700 hover:text-primary font-medium">Education</a>
                 <a href="#contact" class="nav-link text-slate-700 hover:text-primary font-medium">Contact</a>
             </div>
@@ -263,8 +268,89 @@
         </div>
     </section>
 
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-6 bg-slate-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">My Skills</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+                <p class="text-lg text-slate-600 mt-4 max-w-2xl mx-auto">
+                    Here are some of the technical skills I've acquired through my journey as a developer.
+                </p>
+            </div>
+
+            <div class="max-w-3xl mx-auto space-y-8">
+                <!-- DSA (Java) -->
+                <div>
+                    <div class="flex justify-between mb-2">
+                        <span class="font-medium text-slate-700">DSA (Java)</span>
+                        <span class="text-primary font-medium">85%</span>
+                    </div>
+                    <div class="w-full bg-slate-200 rounded-full h-2.5">
+                        <div class="bg-gradient-to-r from-primary to-secondary h-2.5 rounded-full skill-progress" style="width: 85%"></div>
+                    </div>
+                </div>
+
+                <!-- Python -->
+                <div>
+                    <div class="flex justify-between mb-2">
+                        <span class="font-medium text-slate-700">Python</span>
+                        <span class="text-primary font-medium">90%</span>
+                    </div>
+                    <div class="w-full bg-slate-200 rounded-full h-2.5">
+                        <div class="bg-gradient-to-r from-primary to-secondary h-2.5 rounded-full skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+
+                <!-- C Programming -->
+                <div>
+                    <div class="flex justify-between mb-2">
+                        <span class="font-medium text-slate-700">C Programming</span>
+                        <span class="text-primary font-medium">80%</span>
+                    </div>
+                    <div class="w-full bg-slate-200 rounded-full h-2.5">
+                        <div class="bg-gradient-to-r from-primary to-secondary h-2.5 rounded-full skill-progress" style="width: 80%"></div>
+                    </div>
+                </div>
+
+                <!-- CSS/Tailwind CSS -->
+                <div>
+                    <div class="flex justify-between mb-2">
+                        <span class="font-medium text-slate-700">CSS/Tailwind CSS</span>
+                        <span class="text-primary font-medium">88%</span>
+                    </div>
+                    <div class="w-full bg-slate-200 rounded-full h-2.5">
+                        <div class="bg-gradient-to-r from-primary to-secondary h-2.5 rounded-full skill-progress" style="width: 88%"></div>
+                    </div>
+                </div>
+
+                <!-- React/JavaScript -->
+                <div>
+                    <div class="flex justify-between mb-2">
+                        <span class="font-medium text-slate-700">React/JavaScript</span>
+                        <span class="text-primary font-medium">82%</span>
+                    </div>
+                    <div class="w-full bg-slate-200 rounded-full h-2.5">
+                        <div class="bg-gradient-to-r from-primary to-secondary h-2.5 rounded-full skill-progress" style="width: 82%"></div>
+                    </div>
+                </div>
+
+                <!-- Next.js/TypeScript -->
+                <div>
+                    <div class="flex justify-between mb-2">
+                        <span class="font-medium text-slate-700">Next.js/TypeScript</span>
+                        <span class="text-primary font-medium">78%</span>
+                    </div>
+                    <div class="w-full bg-slate-200 rounded-full h-2.5">
+                        <div class="bg-gradient-to-r from-primary to-secondary h-2.5 rounded-full skill-progress" style="width: 78%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Education Section -->
-    <section id="education" class="py-20 px-6 bg-slate-50">
+    <section id="education" class="py-20 px-6 bg-white">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16">
                 <h2 class="text-4xl font-bold mb-4">Education & Certifications</h2>
@@ -451,6 +537,34 @@
             event.returnValue = confirmationMessage;
             return confirmationMessage;
         });
+
+        // Animate skill progress bars when they come into view
+        const skillProgressBars = document.querySelectorAll('.skill-progress');
+        
+        const animateSkills = () => {
+            skillProgressBars.forEach(bar => {
+                const rect = bar.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                    // Already animated
+                    if (bar.dataset.animated) return;
+                    
+                    // Get the target width from the style attribute
+                    const targetWidth = bar.style.width;
+                    bar.style.width = '0%';
+                    
+                    // Trigger reflow
+                    void bar.offsetWidth;
+                    
+                    // Animate to target width
+                    bar.style.width = targetWidth;
+                    bar.dataset.animated = 'true';
+                }
+            });
+        };
+
+        // Run on initial load and scroll
+        window.addEventListener('load', animateSkills);
+        window.addEventListener('scroll', animateSkills);
     </script>
 </body>
 </html>
